@@ -1,0 +1,2829 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tan Li Ying - Data &amp; Business Analyst Portfolio</title>
+  <meta name="description" content="Portfolio of Tan Li Ying, Year 2 Diploma in Big Data & Analytics student at Temasek Polytechnic (graduating May 2028) based in Singapore, seeking Data Analyst and Business Analyst internships." />
+
+  <!-- Google Fonts: Newsreader (Editorial Serif), Plus Jakarta Sans (Clean UI), JetBrains Mono (Technical Metadata) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================================
+       1. DESIGN TOKENS: MIDNIGHT MINT & PINK (DEFAULT) + LIGHT MINT & BABY BLUE
+       ========================================================================= */
+    :root,
+    [data-theme="dark"] {
+      --bg-paper: #080C14;
+      --bg-surface: #0F1623;
+      --bg-stone: #151F32;
+      --header-bg: rgba(8, 12, 20, 0.86);
+      --ink-primary: #F1F5F9;
+      --ink-secondary: #94A3B8;
+      --ink-muted: #64748B;
+      --border-hairline: rgba(148, 163, 184, 0.14);
+      --border-strong: rgba(94, 234, 212, 0.36);
+
+      --accent-teal: #5EEAD4;
+      --accent-teal-hover: #2DD4BF;
+      --accent-teal-ink: #042F2E;
+      --accent-teal-tint: rgba(94, 234, 212, 0.10);
+      --accent-teal-border: rgba(94, 234, 212, 0.28);
+
+      --accent-pink: #F472B6;
+      --accent-pink-soft: #FBCFE8;
+      --accent-pink-tint: rgba(244, 114, 182, 0.11);
+      --accent-pink-border: rgba(244, 114, 182, 0.28);
+
+      --accent-blue: #7DD3FC;
+      --status-green: #34D399;
+      --status-green-bg: rgba(52, 211, 153, 0.16);
+
+      --ambient-1: rgba(94, 234, 212, 0.08);
+      --ambient-2: rgba(244, 114, 182, 0.07);
+      --ambient-3: rgba(125, 211, 252, 0.05);
+      --card-glow: rgba(94, 234, 212, 0.11);
+      --card-glow-pink: rgba(244, 114, 182, 0.08);
+
+      --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+      --container-max: 1080px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.26);
+      --shadow-lift: 0 14px 34px -8px rgba(0, 0, 0, 0.52), 0 0 0 1px rgba(94, 234, 212, 0.22);
+      --shadow-drawer: -14px 0 44px rgba(0, 0, 0, 0.65);
+      --transition-fast: 170ms ease;
+      --transition-smooth: 280ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="light"] {
+      --bg-paper: #F7FBFF;
+      --bg-surface: #FFFFFF;
+      --bg-stone: #EDF6FF;
+      --header-bg: rgba(247, 251, 255, 0.90);
+      --ink-primary: #0F172A;
+      --ink-secondary: #475569;
+      --ink-muted: #64748B;
+      --border-hairline: #DCE8F5;
+      --border-strong: #B8D4EE;
+
+      --accent-teal: #0F766E;
+      --accent-teal-hover: #115E59;
+      --accent-teal-ink: #FFFFFF;
+      --accent-teal-tint: #F0FDFA;
+      --accent-teal-border: #99F6E4;
+
+      --accent-pink: #DB2777;
+      --accent-pink-soft: #FCE7F3;
+      --accent-pink-tint: #FDF2F8;
+      --accent-pink-border: #FBCFE8;
+
+      --accent-blue: #0284C7;
+      --status-green: #16A34A;
+      --status-green-bg: #DCFCE7;
+
+      --ambient-1: rgba(15, 118, 110, 0.06);
+      --ambient-2: rgba(2, 132, 199, 0.06);
+      --ambient-3: rgba(219, 39, 119, 0.04);
+      --card-glow: rgba(15, 118, 110, 0.08);
+      --card-glow-pink: rgba(2, 132, 199, 0.06);
+
+      --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-lift: 0 12px 28px -8px rgba(15, 23, 42, 0.10), 0 0 0 1px rgba(15, 118, 110, 0.22);
+      --shadow-drawer: -12px 0 40px rgba(15, 23, 42, 0.14);
+    }
+
+    /* =========================================================================
+       2. RESET & BASE TYPOGRAPHY
+       ========================================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      background-color: var(--bg-paper);
+      background-image:
+        radial-gradient(circle at 12% 8%, var(--ambient-1) 0%, transparent 42%),
+        radial-gradient(circle at 88% 16%, var(--ambient-2) 0%, transparent 40%),
+        radial-gradient(circle at 50% 62%, var(--ambient-3) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      transition: background-color 240ms ease, color 240ms ease;
+    }
+
+    body.drawer-open {
+      overflow: hidden;
+    }
+
+    /* Top Scroll Progress Bar */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      z-index: 60;
+      background: linear-gradient(90deg, #5EEAD4 0%, #7DD3FC 52%, #F472B6 100%);
+      pointer-events: none;
+      transition: width 60ms linear;
+    }
+
+    ::selection {
+      background-color: var(--accent-pink-tint);
+      color: var(--accent-pink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.35rem;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 2.25rem;
+      }
+    }
+
+    /* =========================================================================
+       3. STICKY TOP NAVIGATION
+       ========================================================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .brand-mint-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-teal);
+      box-shadow: 0 0 0 3px var(--accent-teal-tint);
+      flex-shrink: 0;
+    }
+
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      letter-spacing: -0.015em;
+      color: var(--ink-primary);
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-secondary);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.15rem;
+    }
+
+    @media (min-width: 960px) {
+      .nav-links {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      transition: color var(--transition-fast);
+      padding: 0.35rem 0;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      color: var(--accent-teal);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .btn-theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.38rem;
+      padding: 0.44rem 0.78rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: 999px;
+      transition: border-color var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-theme-toggle:hover {
+      border-color: var(--accent-pink);
+      color: var(--accent-pink);
+    }
+
+    .theme-swatch {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-teal), var(--accent-pink));
+      flex-shrink: 0;
+    }
+
+    .btn-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.46rem 0.88rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--accent-teal-ink);
+      background-color: var(--accent-teal);
+      border: 1px solid var(--accent-teal);
+      border-radius: var(--radius-sm);
+      transition: background-color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .btn-nav-cta:hover {
+      background-color: var(--accent-teal-hover);
+      border-color: var(--accent-teal-hover);
+    }
+
+    .mobile-menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      color: var(--ink-primary);
+    }
+
+    @media (min-width: 960px) {
+      .mobile-menu-toggle {
+        display: none;
+      }
+    }
+
+    .mobile-nav-panel {
+      display: none;
+      padding: 0.75rem 0 1.1rem;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .mobile-nav-panel.open {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .mobile-nav-panel a {
+      padding: 0.6rem 0.5rem;
+      font-size: 0.925rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-nav-panel a:hover {
+      background-color: var(--bg-stone);
+      color: var(--accent-teal);
+    }
+
+    /* =========================================================================
+       4. HERO SECTION & 3-COLUMN SNAPSHOT STRIP
+       ========================================================================= */
+    .hero-section {
+      padding: 3.5rem 0 4.25rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    @media (min-width: 768px) {
+      .hero-section {
+        padding: 4.75rem 0 5rem;
+      }
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.42rem 0.9rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      margin-bottom: 1.65rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--status-green);
+      box-shadow: 0 0 0 3px var(--status-green-bg);
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 4.6vw, 3.45rem);
+      font-weight: 400;
+      line-height: 1.14;
+      letter-spacing: -0.022em;
+      color: var(--ink-primary);
+      max-width: 840px;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      background: linear-gradient(95deg, var(--accent-teal) 0%, var(--accent-blue) 52%, var(--accent-pink) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-bio {
+      font-size: 1.04rem;
+      line-height: 1.72;
+      color: var(--ink-secondary);
+      max-width: 730px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2.75rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.72rem 1.25rem;
+      background-color: var(--accent-teal);
+      color: var(--accent-teal-ink);
+      font-size: 0.88rem;
+      font-weight: 600;
+      border: 1px solid var(--accent-teal);
+      border-radius: var(--radius-sm);
+      transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-teal-hover);
+      border-color: var(--accent-teal-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.72rem 1.15rem;
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-subtle);
+      transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
+      background-color: var(--accent-teal-tint);
+    }
+
+    /* 3-Column Snapshot Metric Strip */
+    .snapshot-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 768px) {
+      .snapshot-strip {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.15rem;
+      }
+    }
+
+    .snapshot-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1.35rem;
+      box-shadow: var(--shadow-subtle);
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .snapshot-card:hover {
+      border-color: var(--accent-teal-border);
+      transform: translateY(-2px);
+    }
+
+    .snapshot-metric {
+      font-family: var(--font-serif);
+      font-size: 1.52rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      line-height: 1.22;
+      margin-bottom: 0.28rem;
+    }
+
+    .snapshot-caption {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--ink-secondary);
+      line-height: 1.45;
+    }
+
+    /* =========================================================================
+       5. SHARED EDITORIAL SECTION HEADERS
+       ========================================================================= */
+    .editorial-section {
+      padding: 4.25rem 0;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    @media (min-width: 768px) {
+      .editorial-section {
+        padding: 5.25rem 0;
+      }
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin-bottom: 0.45rem;
+    }
+
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 3.2vw, 2.3rem);
+      font-weight: 400;
+      letter-spacing: -0.018em;
+      line-height: 1.2;
+      color: var(--ink-primary);
+      margin-bottom: 0.7rem;
+    }
+
+    .section-subcopy {
+      font-size: 0.96rem;
+      color: var(--ink-secondary);
+      max-width: 680px;
+    }
+
+    /* =========================================================================
+       6. SECTION 01: INTERACTIVE ARCHITECTURE SPOTLIGHT (#pipeline)
+       ========================================================================= */
+    .spotlight-box {
+      margin-top: 2rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    @media (min-width: 768px) {
+      .spotlight-box {
+        padding: 1.85rem;
+      }
+    }
+
+    .spotlight-topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-bottom: 0.9rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .spotlight-badge {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+    }
+
+    .spotlight-instruction {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+
+    .pipeline-track {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+
+    @media (min-width: 920px) {
+      .pipeline-track {
+        grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+        gap: 0.45rem;
+        align-items: stretch;
+      }
+    }
+
+    .stage-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      width: 100%;
+      padding: 0.9rem 0.95rem;
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+    }
+
+    .stage-btn:hover {
+      border-color: var(--border-strong);
+      background-color: var(--bg-surface);
+    }
+
+    .stage-btn.active {
+      background-color: var(--accent-teal-tint);
+      border-color: var(--accent-teal);
+      box-shadow: 0 0 0 1px var(--accent-teal);
+    }
+
+    .stage-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .stage-btn.active .stage-num {
+      color: var(--accent-teal);
+    }
+
+    .stage-name {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+
+    .stage-btn.active .stage-name {
+      color: var(--accent-teal);
+    }
+
+    .stage-tease {
+      font-size: 0.77rem;
+      line-height: 1.42;
+      color: var(--ink-secondary);
+    }
+
+    .stage-connector {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      user-select: none;
+    }
+
+    @media (min-width: 920px) {
+      .stage-connector {
+        display: flex;
+      }
+    }
+
+    /* 3-Column Detail Card Below Pipeline */
+    .stage-inspector {
+      margin-top: 1.25rem;
+      background-color: var(--bg-stone);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+
+    .inspector-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding-bottom: 0.85rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .inspector-title {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+    }
+
+    .inspector-service-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent-teal);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--accent-teal-border);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .inspector-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+
+    @media (min-width: 768px) {
+      .inspector-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    .inspector-pane {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      padding: 0.95rem 1rem;
+    }
+
+    .inspector-pane-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-teal);
+      margin-bottom: 0.4rem;
+    }
+
+    .inspector-pane-text {
+      font-size: 0.85rem;
+      line-height: 1.58;
+      color: var(--ink-secondary);
+    }
+
+    /* =========================================================================
+       7. SECTION 02: NUMBERED CASE STUDIES (#projects)
+       ========================================================================= */
+    .projects-header-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-pill {
+      padding: 0.5rem 0.92rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: 999px;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-pill:hover {
+      border-color: var(--border-strong);
+      color: var(--ink-primary);
+    }
+
+    .filter-pill.active {
+      background-color: var(--accent-teal);
+      color: var(--accent-teal-ink);
+      border-color: var(--accent-teal);
+      font-weight: 600;
+    }
+
+    .case-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .case-card {
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-subtle);
+      transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .case-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        460px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        var(--card-glow),
+        var(--card-glow-pink) 45%,
+        transparent 75%
+      );
+      opacity: 0;
+      transition: opacity 240ms ease;
+      pointer-events: none;
+    }
+
+    .case-card:hover::before {
+      opacity: 1;
+    }
+
+    @media (min-width: 768px) {
+      .case-card {
+        padding: 1.85rem 2rem;
+      }
+    }
+
+    .case-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lift);
+      border-color: var(--border-strong);
+    }
+
+    .case-card-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .case-id-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .case-number {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+    }
+
+    .module-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      background-color: var(--bg-stone);
+      border: 1px solid var(--border-hairline);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+    }
+
+    .case-domain-label {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--ink-muted);
+    }
+
+    .highlight-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .highlight-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.24rem 0.68rem;
+      background-color: var(--accent-pink-tint);
+      border: 1px solid var(--accent-pink-border);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.71rem;
+      font-weight: 500;
+      color: var(--accent-pink);
+    }
+
+    .case-title {
+      font-family: var(--font-serif);
+      font-size: 1.48rem;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      color: var(--ink-primary);
+      margin-bottom: 0.65rem;
+    }
+
+    .case-desc {
+      font-size: 0.94rem;
+      line-height: 1.66;
+      color: var(--ink-secondary);
+      max-width: 840px;
+      margin-bottom: 1.2rem;
+    }
+
+    .case-meta-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.42rem;
+      padding: 0.9rem 1rem;
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.2rem;
+    }
+
+    .case-meta-line {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      font-size: 0.84rem;
+    }
+
+    @media (min-width: 640px) {
+      .case-meta-line {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.65rem;
+      }
+    }
+
+    .case-meta-key {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      min-width: 82px;
+      flex-shrink: 0;
+    }
+
+    .case-meta-val {
+      color: var(--ink-secondary);
+      line-height: 1.5;
+    }
+
+    .case-card-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .btn-read-case {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.52rem 0.98rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      background-color: var(--accent-teal-tint);
+      border: 1px solid var(--accent-teal-border);
+      border-radius: var(--radius-sm);
+      transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .case-card:hover .btn-read-case,
+    .btn-read-case:hover {
+      background-color: var(--accent-teal);
+      color: var(--accent-teal-ink);
+      border-color: var(--accent-teal);
+    }
+
+    /* =========================================================================
+       8. SECTION 03: 4-CARD TECHNICAL TOOLKIT (#toolkit)
+       ========================================================================= */
+    .toolkit-grid-4 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+      margin-top: 2.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .toolkit-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .toolkit-grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .toolkit-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .toolkit-card-num {
+      font-family: var(--font-mono);
+      font-size: 0.71rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+      margin-bottom: 0.4rem;
+    }
+
+    .toolkit-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.24rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      padding-bottom: 0.8rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .toolkit-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .toolkit-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 0.875rem;
+      line-height: 1.48;
+      color: var(--ink-secondary);
+    }
+
+    .toolkit-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: var(--accent-teal);
+      margin-top: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    /* =========================================================================
+       9. SECTION 04: 2-COLUMN EXPERIENCE & EDUCATION TIMELINE (#experience)
+       ========================================================================= */
+    .timeline-columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (min-width: 860px) {
+      .timeline-columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+    }
+
+    .timeline-col-heading {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink-primary);
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-hairline);
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-rail {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      border-left: 1px solid var(--border-strong);
+      padding-left: 1.35rem;
+      margin-left: 0.35rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.35rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.68rem;
+      top: 1.45rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background-color: var(--bg-paper);
+      border: 2px solid var(--accent-teal);
+    }
+
+    .timeline-date {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      font-weight: 500;
+      color: var(--accent-teal);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-org {
+      font-family: var(--font-serif);
+      font-size: 1.18rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      line-height: 1.3;
+    }
+
+    .timeline-role {
+      font-size: 0.87rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-top: 0.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-body {
+      font-size: 0.86rem;
+      line-height: 1.62;
+      color: var(--ink-secondary);
+    }
+
+    /* =========================================================================
+       9B. SECTION 05: BEYOND DATA / GET TO KNOW ME (#personal)
+       ========================================================================= */
+    .personal-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+      margin-top: 2.25rem;
+    }
+
+    @media (min-width: 820px) {
+      .personal-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .personal-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      transition: transform var(--transition-smooth), border-color var(--transition-fast);
+    }
+
+    .personal-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-pink-border);
+    }
+
+    .personal-tag {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 0.22rem 0.62rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent-pink);
+      background-color: var(--accent-pink-tint);
+      border: 1px solid var(--accent-pink-border);
+    }
+
+    .personal-title {
+      font-family: var(--font-serif);
+      font-size: 1.24rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      line-height: 1.28;
+    }
+
+    .personal-body {
+      font-size: 0.88rem;
+      line-height: 1.64;
+      color: var(--ink-secondary);
+    }
+
+    /* =========================================================================
+       10. CONTACT FOOTER
+       ========================================================================= */
+    .site-footer {
+      padding: 3.5rem 0 4.25rem;
+    }
+
+    .footer-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      padding: 1.85rem 1.5rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    @media (min-width: 768px) {
+      .footer-card {
+        padding: 2.25rem 2.5rem;
+      }
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    @media (min-width: 840px) {
+      .footer-top {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(1.55rem, 2.8vw, 2rem);
+      font-weight: 400;
+      color: var(--ink-primary);
+      line-height: 1.22;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-subtext {
+      font-size: 0.94rem;
+      color: var(--ink-secondary);
+      max-width: 540px;
+    }
+
+    .footer-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .btn-footer {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.95rem;
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+    }
+
+    .btn-footer:hover {
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
+      background-color: var(--accent-teal-tint);
+    }
+
+    .btn-footer-primary {
+      background-color: var(--accent-teal);
+      color: var(--accent-teal-ink);
+      border-color: var(--accent-teal);
+      font-weight: 600;
+    }
+
+    .btn-footer-primary:hover {
+      background-color: var(--accent-teal-hover);
+      color: var(--accent-teal-ink);
+      border-color: var(--accent-teal-hover);
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding-top: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-github-note {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+
+    /* =========================================================================
+       11. SLIDE-OVER CASE STUDY DRAWER & INLINE SVG DIAGRAMS
+       ========================================================================= */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background-color: rgba(8, 12, 20, 0.58);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-smooth);
+    }
+
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .case-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      width: 100%;
+      max-width: 700px;
+      background-color: var(--bg-paper);
+      border-left: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-drawer);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform var(--transition-smooth);
+    }
+
+    .case-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.15rem 1.5rem;
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-hairline);
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 640px) {
+      .drawer-header {
+        padding: 1.25rem 2rem;
+      }
+    }
+
+    .drawer-top-meta {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--accent-teal);
+    }
+
+    .drawer-close-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.42rem 0.78rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .drawer-close-btn:hover {
+      color: var(--ink-primary);
+      border-color: var(--border-strong);
+      background-color: var(--bg-stone);
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.75rem 1.5rem 2.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .drawer-body {
+        padding: 2rem 2rem 3rem;
+      }
+    }
+
+    .drawer-title {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: 500;
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+      color: var(--ink-primary);
+      margin-bottom: 0.85rem;
+    }
+
+    .drawer-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.65rem;
+    }
+
+    .drawer-section {
+      margin-bottom: 1.6rem;
+    }
+
+    .drawer-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.42rem;
+    }
+
+    .drawer-section-text {
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--ink-primary);
+    }
+
+    .drawer-svg-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 1.15rem;
+      margin: 1.5rem 0 1.7rem;
+    }
+
+    .drawer-svg-caption {
+      font-family: var(--font-mono);
+      font-size: 0.71rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink-secondary);
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .drawer-svg-wrap svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .drawer-tools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .drawer-tool-chip {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 0.3rem 0.65rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      color: var(--ink-secondary);
+    }
+
+    .drawer-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-hairline);
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 640px) {
+      .drawer-footer {
+        padding: 1rem 2rem;
+      }
+    }
+
+    .drawer-nav-btn {
+      padding: 0.5rem 0.9rem;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--ink-primary);
+      background-color: var(--bg-paper);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+
+    .drawer-nav-btn:hover {
+      border-color: var(--accent-teal);
+      color: var(--accent-teal);
+    }
+
+    /* =========================================================================
+       12. SCROLL-REVEAL ANIMATIONS, TOAST NOTIFICATION & PRINT STYLESHEET
+       ========================================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity 560ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+        transform 560ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .scroll-progress-bar {
+        transition: none;
+      }
+    }
+
+    .toast-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 70;
+      padding: 0.65rem 1rem;
+      background-color: var(--bg-stone);
+      color: var(--ink-primary);
+      border: 1px solid var(--accent-teal-border);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lift);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+
+    .toast-banner.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media print {
+      body {
+        background-color: #FFFFFF !important;
+        color: #18181B !important;
+        font-size: 10.5pt;
+      }
+
+      .site-header,
+      .hero-actions,
+      .filter-pills,
+      .btn-read-case,
+      .drawer-backdrop,
+      .case-drawer,
+      .toast-banner,
+      .footer-btn-row,
+      .scroll-progress-bar {
+        display: none !important;
+      }
+
+      .hero-section,
+      .editorial-section {
+        padding: 1.5rem 0 !important;
+      }
+
+      .snapshot-card,
+      .spotlight-box,
+      .case-card,
+      .toolkit-card,
+      .timeline-item,
+      .personal-card,
+      .footer-card {
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Thin Top Scroll-Progress Gradient Bar -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- =========================================================================
+       1. STICKY TOP NAVIGATION
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#top" class="brand" aria-label="Tan Li Ying Home">
+          <span class="brand-title-row">
+            <span class="brand-mint-dot" aria-hidden="true"></span>
+            <span class="brand-name">Tan Li Ying</span>
+          </span>
+          <span class="brand-sub">BDA &middot; Temasek Polytechnic</span>
+        </a>
+
+        <div class="nav-right">
+          <nav class="nav-links" aria-label="Primary Navigation">
+            <a href="#pipeline" class="nav-link">Pipeline</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#toolkit" class="nav-link">Toolkit</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#personal" class="nav-link">Beyond Data</a>
+            <a
+              href="https://github.com/liyingg324"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav-link"
+            >
+              GitHub &#8599;
+            </a>
+            <a
+              href="https://www.linkedin.com/in/li-ying-tan-5b302a362/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav-link"
+            >
+              LinkedIn &#8599;
+            </a>
+          </nav>
+
+          <div class="nav-actions">
+            <button
+              type="button"
+              id="theme-toggle-btn"
+              class="btn-theme-toggle"
+              aria-label="Switch color theme"
+            >
+              <span class="theme-swatch" aria-hidden="true"></span>
+              <span id="theme-toggle-label">Light &middot; Mint &amp; Baby Blue</span>
+            </button>
+
+            <button
+              type="button"
+              class="btn-nav-cta js-copy-email"
+              data-email="liyingofficial@gmail.com"
+            >
+              Copy Email
+            </button>
+
+            <button
+              type="button"
+              id="mobile-nav-btn"
+              class="mobile-menu-toggle"
+              aria-expanded="false"
+              aria-controls="mobile-nav-panel"
+              aria-label="Toggle navigation menu"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <nav id="mobile-nav-panel" class="mobile-nav-panel" aria-label="Mobile Navigation">
+        <a href="#pipeline" class="mobile-nav-item">01 &middot; Pipeline Spotlight</a>
+        <a href="#projects" class="mobile-nav-item">02 &middot; Selected Work (01-05)</a>
+        <a href="#toolkit" class="mobile-nav-item">03 &middot; Skills &amp; Tooling</a>
+        <a href="#experience" class="mobile-nav-item">04 &middot; Experience &amp; Education</a>
+        <a href="#personal" class="mobile-nav-item">05 &middot; Beyond Data</a>
+        <a
+          href="https://github.com/liyingg324"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-nav-item"
+        >
+          GitHub (liyingg324) &#8599;
+        </a>
+        <a
+          href="https://www.linkedin.com/in/li-ying-tan-5b302a362/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-nav-item"
+        >
+          LinkedIn Profile &#8599;
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- =======================================================================
+         2. HERO SECTION & 3-COLUMN SNAPSHOT METRIC STRIP
+         ======================================================================= -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="status-pill reveal">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Data Analytics &amp; Business Intelligence &middot; Singapore</span>
+        </div>
+
+        <h1 class="hero-headline reveal">
+          Turning raw operational data into <em>clear decisions.</em>
+        </h1>
+
+        <p class="hero-bio reveal">
+          Year 2 Big Data &amp; Analytics student at Temasek Polytechnic building automated cloud pipelines, star-schema data warehouses, and executive dashboards for Data Analyst and Business Analyst roles.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a href="#projects" class="btn-primary">Explore Case Studies &darr;</a>
+          <a
+            href="https://github.com/liyingg324"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            GitHub Profile &#8599;
+          </a>
+          <a
+            href="https://www.linkedin.com/in/li-ying-tan-5b302a362/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+          >
+            LinkedIn Profile &#8599;
+          </a>
+          <button
+            type="button"
+            class="btn-secondary js-copy-email"
+            data-email="liyingofficial@gmail.com"
+          >
+            Copy Email: liyingofficial@gmail.com
+          </button>
+        </div>
+
+        <!-- 3-Column Snapshot Metric Strip (NO GPA) -->
+        <div class="snapshot-strip" aria-label="Academic and Project Highlights">
+          <div class="snapshot-card reveal">
+            <p class="snapshot-metric">5 End-to-End Projects</p>
+            <p class="snapshot-caption">Cloud ETL, BI Dashboards &amp; Predictive Modeling</p>
+          </div>
+          <div class="snapshot-card reveal">
+            <p class="snapshot-metric">Full Analytics Stack</p>
+            <p class="snapshot-caption">SQL, Power BI, Tableau, Alteryx, Python &amp; AWS</p>
+          </div>
+          <div class="snapshot-card reveal">
+            <p class="snapshot-metric">O-Level A1 Distinctions</p>
+            <p class="snapshot-caption">Additional Mathematics &amp; Chemistry (7 Credits)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. SECTION 01: INTERACTIVE PIPELINE SPOTLIGHT (#pipeline)
+         ======================================================================= -->
+    <section id="pipeline" class="editorial-section">
+      <div class="container">
+        <p class="section-eyebrow reveal">01 &middot; FEATURED CLOUD ARCHITECTURE</p>
+        <h2 class="section-heading reveal">Energinet Automated Renewable Energy Pipeline (DAEC)</h2>
+        <p class="section-subcopy reveal">
+          An automated 5-stage serverless pipeline built to ingest, clean, catalog, and visualize 5-minute electricity generation telemetry from Denmark's Energinet grid API.
+        </p>
+
+        <div class="spotlight-box reveal">
+          <div class="spotlight-topbar">
+            <span class="spotlight-badge">PIPELINE INSPECTOR &middot; CLICK ANY STAGE</span>
+            <span class="spotlight-instruction">Interactive Architecture &amp; Cost-Control Breakdown</span>
+          </div>
+
+          <div class="pipeline-track" role="tablist" aria-label="Energinet Pipeline Stages">
+            <button type="button" class="stage-btn active" data-stage="0" role="tab" aria-selected="true">
+              <span class="stage-num">01 &middot; INGESTION</span>
+              <span class="stage-name">EventBridge + Lambda</span>
+              <span class="stage-tease">5-minute API polling with S3 idempotency checks</span>
+            </button>
+
+            <span class="stage-connector" aria-hidden="true">&rarr;</span>
+
+            <button type="button" class="stage-btn" data-stage="1" role="tab" aria-selected="false">
+              <span class="stage-num">02 &middot; DATA LAKE</span>
+              <span class="stage-name">Amazon S3 Zones</span>
+              <span class="stage-tease">Raw JSON vs. Hive-partitioned Parquet storage</span>
+            </button>
+
+            <span class="stage-connector" aria-hidden="true">&rarr;</span>
+
+            <button type="button" class="stage-btn" data-stage="2" role="tab" aria-selected="false">
+              <span class="stage-num">03 &middot; GLUE ETL</span>
+              <span class="stage-name">PySpark &amp; Crawler</span>
+              <span class="stage-tease">UTC normalization, deduplication &amp; catalog schema</span>
+            </button>
+
+            <span class="stage-connector" aria-hidden="true">&rarr;</span>
+
+            <button type="button" class="stage-btn" data-stage="3" role="tab" aria-selected="false">
+              <span class="stage-num">04 &middot; ATHENA SQL</span>
+              <span class="stage-name">Serverless SQL Views</span>
+              <span class="stage-tease">Partitioned queries with 100 MB scan guardrail</span>
+            </button>
+
+            <span class="stage-connector" aria-hidden="true">&rarr;</span>
+
+            <button type="button" class="stage-btn" data-stage="4" role="tab" aria-selected="false">
+              <span class="stage-num">05 &middot; POWER BI</span>
+              <span class="stage-name">Executive Dashboard</span>
+              <span class="stage-tease">DK1 vs. DK2 renewable share &amp; wind/solar mix</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Detail Card Below Pipeline -->
+          <div class="stage-inspector" aria-live="polite">
+            <div class="inspector-header">
+              <h3 id="inspector-title" class="inspector-title">01 &middot; EventBridge + Lambda Ingestion</h3>
+              <span id="inspector-pill" class="inspector-service-pill">EventBridge &middot; Lambda &middot; Step Functions &middot; SNS</span>
+            </div>
+
+            <div class="inspector-grid">
+              <div class="inspector-pane">
+                <p class="inspector-pane-label">Architecture Logic</p>
+                <p id="inspector-logic" class="inspector-pane-text">
+                  EventBridge 5-minute schedule triggers AWS Lambda to query Denmark's Energinet PowerSystemRightNow API with head_object idempotency checks.
+                </p>
+              </div>
+              <div class="inspector-pane">
+                <p class="inspector-pane-label">Guardrails &amp; Cost Control</p>
+                <p id="inspector-guardrails" class="inspector-pane-text">
+                  Reserved concurrency set to 1 with a 60-second timeout and automated SNS email alerting on workflow failure to prevent runaway retries.
+                </p>
+              </div>
+              <div class="inspector-pane">
+                <p class="inspector-pane-label">Analytical Output</p>
+                <p id="inspector-output" class="inspector-pane-text">
+                  Captures clean 5-minute interval regional generation metrics across DK1 and DK2 without duplicate API writes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. SECTION 02: SELECTED WORK - 5 CASE STUDIES (#projects)
+         ======================================================================= -->
+    <section id="projects" class="editorial-section">
+      <div class="container">
+        <div class="projects-header-wrap reveal">
+          <div>
+            <p class="section-eyebrow">02 &middot; SELECTED WORK</p>
+            <h2 class="section-heading">Five applied analytics &amp; engineering projects</h2>
+            <p class="section-subcopy">
+              Filter by analytical discipline or open any case study to inspect business objectives, modeling choices, and inline architecture diagrams.
+            </p>
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="filter-pills" role="tablist" aria-label="Filter case studies by category">
+            <button type="button" class="filter-pill active" data-filter="all">All Projects (5)</button>
+            <button type="button" class="filter-pill" data-filter="BI & Visualisation">BI &amp; Visualisation</button>
+            <button type="button" class="filter-pill" data-filter="Data Engineering & SQL">Data Engineering &amp; SQL</button>
+            <button type="button" class="filter-pill" data-filter="Predictive & Risk Analytics">Predictive &amp; Risk Analytics</button>
+          </div>
+        </div>
+
+        <div id="case-list" class="case-list"></div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. SECTION 03: SKILLS & TOOLING (#toolkit)
+         ======================================================================= -->
+    <section id="toolkit" class="editorial-section">
+      <div class="container">
+        <p class="section-eyebrow reveal">03 &middot; SKILLS &amp; TOOLING</p>
+        <h2 class="section-heading reveal">Technical toolkit &amp; analytical methods</h2>
+        <p class="section-subcopy reveal">
+          Software, query engines, cloud services, and statistical frameworks applied across coursework and team deliverables.
+        </p>
+
+        <div class="toolkit-grid-4">
+          <!-- Card 1: BI & Visualisation -->
+          <div class="toolkit-card reveal">
+            <p class="toolkit-card-num">01 / REPORTING</p>
+            <h3 class="toolkit-card-title">BI &amp; Visualisation</h3>
+            <ul class="toolkit-items">
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Power BI</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Tableau</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Microsoft Excel (Pivot Tables, XLOOKUP, Sales Reporting)</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Dashboard Storytelling</span></li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Data Engineering & Cloud -->
+          <div class="toolkit-card reveal">
+            <p class="toolkit-card-num">02 / PIPELINES</p>
+            <h3 class="toolkit-card-title">Data Engineering &amp; Cloud</h3>
+            <ul class="toolkit-items">
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>SQL &amp; MySQL Workbench</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Alteryx Designer &amp; KNIME</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>AWS (S3, Lambda, Glue, Athena, Step Functions, EventBridge, SNS)</span></li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Quantitative & Programming -->
+          <div class="toolkit-card reveal">
+            <p class="toolkit-card-num">03 / STATISTICS</p>
+            <h3 class="toolkit-card-title">Quantitative &amp; Programming</h3>
+            <ul class="toolkit-items">
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Python (Pandas, NumPy)</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Statistical Hypothesis Testing &amp; ANOVA</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Linear &amp; Logistic Regression</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>A/B Testing Design</span></li>
+            </ul>
+          </div>
+
+          <!-- Card 4: Analytics Methodology -->
+          <div class="toolkit-card reveal">
+            <p class="toolkit-card-num">04 / WORKFLOW</p>
+            <h3 class="toolkit-card-title">Analytics Methodology</h3>
+            <ul class="toolkit-items">
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>CRISP-DM</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Star-Schema Modeling</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Data Profiling &amp; Cleansing</span></li>
+              <li><span class="toolkit-dot" aria-hidden="true"></span><span>Feature Engineering &amp; Stakeholder Reporting</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. SECTION 04: EXPERIENCE & EDUCATION (#experience) (NO GPA)
+         ======================================================================= -->
+    <section id="experience" class="editorial-section">
+      <div class="container">
+        <p class="section-eyebrow reveal">04 &middot; BACKGROUND</p>
+        <h2 class="section-heading reveal">Experience, leadership &amp; education</h2>
+        <p class="section-subcopy reveal">
+          Practical retail operations, community volunteering, industry mentorship, and polytechnic training in Singapore.
+        </p>
+
+        <div class="timeline-columns">
+          <!-- Column 1: Experience & Leadership -->
+          <div>
+            <h3 class="timeline-col-heading reveal">Experience &amp; Leadership</h3>
+            <div class="timeline-rail">
+              <article class="timeline-item reveal">
+                <span class="timeline-date">Aug 2025 - Present</span>
+                <h4 class="timeline-org">Chateraise</h4>
+                <p class="timeline-role">Part-Time Service Crew</p>
+                <p class="timeline-body">
+                  Manage daily retail operations, customer service, and inventory checks, while using Microsoft Excel spreadsheets every shift to key in daily transaction data and compile end-of-day sales reports.
+                </p>
+              </article>
+
+              <article class="timeline-item reveal">
+                <span class="timeline-date">Dec 2024 - Jan 2025</span>
+                <h4 class="timeline-org">Bee Cheng Hiang</h4>
+                <p class="timeline-role">Event Service Crew</p>
+                <p class="timeline-body">
+                  Supported high-volume festive retail operations, stock replenishment, and customer assistance.
+                </p>
+              </article>
+
+              <article class="timeline-item reveal">
+                <span class="timeline-date">2025</span>
+                <h4 class="timeline-org">Youth Corps Singapore</h4>
+                <p class="timeline-role">Volunteer Befriender</p>
+                <p class="timeline-body">
+                  Facilitated interactive "Coding Games for Kids" digital literacy workshops at primary schools including Gan Eng Seng Primary School.
+                </p>
+              </article>
+
+              <article class="timeline-item reveal">
+                <span class="timeline-date">2025 - 2026</span>
+                <h4 class="timeline-org">Singapore Computer Society WITCircle</h4>
+                <p class="timeline-role">Mentee</p>
+                <p class="timeline-body">
+                  Participated in the Women in Tech mentorship program alongside SCS Google Career Certificates and AI Essentials coursework.
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <!-- Column 2: Education -->
+          <div>
+            <h3 class="timeline-col-heading reveal">Education</h3>
+            <div class="timeline-rail">
+              <article class="timeline-item reveal">
+                <span class="timeline-date">Apr 2025 - May 2028</span>
+                <h4 class="timeline-org">Temasek Polytechnic</h4>
+                <p class="timeline-role">Diploma in Big Data &amp; Analytics</p>
+                <p class="timeline-body">
+                  School of Informatics &amp; IT. Relevant modules: Data Visualisation &amp; Analytics (DAVA), Data Engineering &amp; Cloud Computing (DAEC), Data Warehousing &amp; Business Intelligence (DWBI), Data Science Essentials (DSES), and Quantitative Analysis (QUAS).
+                </p>
+              </article>
+
+              <article class="timeline-item reveal">
+                <span class="timeline-date">2021 - 2024</span>
+                <h4 class="timeline-org">Pasir Ris Secondary School</h4>
+                <p class="timeline-role">GCE 'O' Level Certificate</p>
+                <p class="timeline-body">
+                  Achieved 7 credits including A1 distinctions in Additional Mathematics and Chemistry; Basketball CCA.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. SECTION 05: BEYOND DATA / GET TO KNOW ME (#personal)
+         ======================================================================= -->
+    <section id="personal" class="editorial-section">
+      <div class="container">
+        <p class="section-eyebrow reveal">05 &middot; GET TO KNOW ME</p>
+        <h2 class="section-heading reveal">Beyond Data</h2>
+        <p class="section-subcopy reveal">
+          A few things outside coursework that shape how I work with data, pacing, and people.
+        </p>
+
+        <div class="personal-grid">
+          <article class="personal-card reveal">
+            <span class="personal-tag">BLURRR &middot; 50K+ LIKES</span>
+            <h3 class="personal-title">Short-Form Video Editing in Blurrr</h3>
+            <p class="personal-body">
+              In my free time, I edit rhythmic short-form videos using Blurrr, working with custom keyframes, velocity curves, and beat-synced transitions (reaching 50K+ likes). Paying close attention to visual pacing and hierarchy carries straight over into how I lay out dashboards.
+            </p>
+          </article>
+
+          <article class="personal-card reveal">
+            <span class="personal-tag">LANGUAGES &middot; SELF-PACED</span>
+            <h3 class="personal-title">Basic Korean &amp; Foundational Japanese</h3>
+            <p class="personal-body">
+              I know basic Korean vocabulary and conversational phrases, alongside foundational Japanese (Hiragana, Katakana, and everyday expressions) picked up through self-paced listening and practice.
+            </p>
+          </article>
+
+          <article class="personal-card reveal">
+            <span class="personal-tag">CHATERAISE &middot; EXCEL REPORTING</span>
+            <h3 class="personal-title">Frontline Retail &amp; Daily Excel Reporting</h3>
+            <p class="personal-body">
+              Working part-time at Chateraise keeps me grounded in day-to-day store operations. Every shift, I key daily figures into Microsoft Excel to prepare end-of-day sales reports, turning raw till numbers into clean daily summaries.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       8. CONTACT FOOTER (#contact)
+       ========================================================================= -->
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="footer-card reveal">
+        <div class="footer-top">
+          <div>
+            <p class="section-eyebrow">CONTACT &amp; INTERNSHIPS</p>
+            <h2 class="footer-heading">Open to Data Analyst &amp; Business Analyst Internships</h2>
+            <p class="footer-subtext">
+              Available for Year 3 polytechnic internship placements and analytics projects in Singapore.
+            </p>
+          </div>
+
+          <div class="footer-btn-row">
+            <a href="mailto:liyingofficial@gmail.com" class="btn-footer btn-footer-primary">
+              Email: liyingofficial@gmail.com
+            </a>
+            <button
+              type="button"
+              class="btn-footer js-copy-email"
+              data-email="liyingofficial@gmail.com"
+            >
+              Copy Email
+            </button>
+            <a
+              href="https://www.linkedin.com/in/li-ying-tan-5b302a362/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-footer"
+            >
+              LinkedIn &#8599;
+            </a>
+            <a
+              href="https://github.com/liyingg324"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-footer"
+            >
+              GitHub &#8599;
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span class="footer-github-note">
+            github.com/liyingg324 &middot; Tan Li Ying Portfolio
+          </span>
+          <button type="button" class="btn-footer" onclick="window.print()">
+            Print / Save PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       9. RIGHT-HAND SLIDE-OVER CASE STUDY DRAWER
+       ========================================================================= -->
+  <div id="drawer-backdrop" class="drawer-backdrop" aria-hidden="true"></div>
+
+  <aside
+    id="case-drawer"
+    class="case-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="drawer-title"
+    aria-hidden="true"
+  >
+    <div class="drawer-header">
+      <span id="drawer-top-meta" class="drawer-top-meta">01 &middot; DAEC</span>
+      <button type="button" id="drawer-close-btn" class="drawer-close-btn" aria-label="Close case study drawer">
+        Close (Esc)
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <h3 id="drawer-title" class="drawer-title">Case Study Title</h3>
+      <div id="drawer-pills" class="drawer-pills"></div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-section-label">Objective &amp; Business Context</h4>
+        <p id="drawer-context" class="drawer-section-text"></p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-section-label">Approach &amp; Modeling</h4>
+        <p id="drawer-approach" class="drawer-section-text"></p>
+      </div>
+
+      <!-- Custom Inline SVG Schematic / Analytical Diagram -->
+      <div class="drawer-svg-card">
+        <p id="drawer-svg-caption" class="drawer-svg-caption">Architecture &amp; Analytical Diagram</p>
+        <div id="drawer-svg-wrap" class="drawer-svg-wrap"></div>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-section-label">Impact &amp; Analytical Outcomes</h4>
+        <p id="drawer-impact" class="drawer-section-text"></p>
+      </div>
+
+      <div class="drawer-section" style="margin-bottom: 0;">
+        <h4 class="drawer-section-label">Tools &amp; Techniques</h4>
+        <div id="drawer-tools-list" class="drawer-tools-list"></div>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <button type="button" id="drawer-prev-btn" class="drawer-nav-btn">&larr; Previous</button>
+      <button type="button" id="drawer-next-btn" class="drawer-nav-btn">Next &rarr;</button>
+    </div>
+  </aside>
+
+  <!-- Subtle Toast Feedback -->
+  <div id="toast-banner" class="toast-banner" role="status" aria-live="polite">
+    Copied liyingofficial@gmail.com to clipboard
+  </div>
+
+  <!-- =========================================================================
+       10. VANILLA JAVASCRIPT: PIPELINE SPOTLIGHT, CASE STUDIES, DRAWER & COPY
+       ========================================================================= -->
+  <script>
+    /**
+     * 1. Interactive Pipeline Spotlight Stages (Section 01: Energinet DAEC)
+     */
+    const PIPELINE_STAGES = [
+      {
+        title: '01 · EventBridge + Lambda Ingestion',
+        pill: 'EventBridge · Lambda · Step Functions · SNS',
+        logic: 'EventBridge 5-minute schedule triggers AWS Lambda to query Denmark\'s Energinet PowerSystemRightNow API with head_object idempotency checks.',
+        guardrails: 'Reserved concurrency set to 1 with a 60s timeout and SNS failure alerts to prevent duplicate runs or runaway retries.',
+        output: 'Captures 5-minute interval regional generation metrics across DK1 and DK2.'
+      },
+      {
+        title: '02 · Two-Zone Amazon S3 Data Lake',
+        pill: 'Amazon S3 · Hive Partitioning · SSE-S3 · Glacier',
+        logic: 'Two-zone Amazon S3 storage separating raw JSON payloads from Hive-partitioned Parquet files (PriceArea, year, month, hour).',
+        guardrails: 'Configured with SSE-S3 encryption, blocked public access, and Glacier Deep Archive lifecycle rules.',
+        output: 'Minimizes storage footprint and scan volume for downstream analytical queries.'
+      },
+      {
+        title: '03 · Glue ETL & Data Catalog',
+        pill: 'AWS Glue PySpark · Glue Crawler · daec_processed_db',
+        logic: 'AWS Glue PySpark job standardizes UTC timestamps, handles nulls, deduplicates records, and engineers renewable share metrics before Glue Crawler catalogs schemas into daec_processed_db.',
+        guardrails: 'Avoids always-on cluster costs via serverless DPU execution and explicit numeric/timestamp type casting.',
+        output: 'Registers a strongly typed, partitioned analytical table ready for serverless SQL engines.'
+      },
+      {
+        title: '04 · Amazon Athena Serverless SQL',
+        pill: 'Amazon Athena · v_hourly_renewable_summary · 100 MB Cap',
+        logic: 'Amazon Athena queries partitioned Parquet tables using saved views (v_hourly_renewable_summary) across DK1 and DK2.',
+        guardrails: 'Enforces a strict 100 MB per-query scan guardrail with dedicated query result storage.',
+        output: 'Delivers sub-second regional aggregations across DK1 and DK2.'
+      },
+      {
+        title: '05 · Power BI Executive Dashboard',
+        pill: 'Power BI Desktop · PriceArea Slicers · Trendlines',
+        logic: 'Power BI Desktop dashboard with PriceArea slicers, stacked area generation breakdowns, and hourly renewable share trendlines.',
+        guardrails: 'Consistent color encoding and explicit MWh and percentage axis labels for clear stakeholder interpretation.',
+        output: 'Answers peak wind vs solar contribution questions across Western and Eastern Denmark.'
+      }
+    ];
+
+    /**
+     * 2. Five Numbered Case Studies (01 to 05) with Tailored Inline SVGs
+     */
+    const CASE_STUDIES = [
+      {
+        id: 'daec',
+        num: '01',
+        module: 'DAEC',
+        domainTag: 'Data Engineering & SQL',
+        categories: ['Data Engineering & SQL'],
+        title: 'Automated Cloud Data Pipeline & Renewable Energy Analytics',
+        desc: 'End-to-end AWS ingestion and Power BI reporting on 5-minute Danish grid telemetry (DK1 vs DK2), balancing automated orchestration with strict storage and query cost guardrails.',
+        tools: 'AWS (Lambda, S3, Glue, Athena, Step Functions, EventBridge, SNS), SQL, Power BI',
+        analysis: 'Time-series generation share (DK1 vs DK2), solar vs wind output trends, Hive partitioning',
+        highlights: ['5-Min Automated ETL', '100 MB Scan Guardrail'],
+        context: 'Monitoring grid decarbonization requires timely visibility into wind, solar, and thermal power generation across Denmark\'s two synchronous electricity price areas (DK1 West and DK2 East). Manual downloads from public APIs introduce latency, duplicate records, and inconsistent schemas.',
+        approach: 'Built an event-driven pipeline orchestrated by AWS Step Functions and triggered every 5 minutes via EventBridge. Implemented idempotent Lambda ingestion into a two-zone S3 data lake (raw JSON vs. Hive-partitioned Parquet), standardized UTC timestamps and numeric types in AWS Glue (cataloged into daec_processed_db), authored governed SQL views in Amazon Athena, and connected outputs to Power BI Desktop.',
+        impact: 'Eliminated manual data collection with automated SNS failure alerting, Glacier Deep Archive lifecycle storage optimization, a 100 MB Athena data-scanned cap, and an executive Power BI report highlighting regional renewable share differences between wind-heavy DK1 and DK2.',
+        svgCaption: 'System Schematic · 5-Minute Energinet Ingestion to Power BI',
+        svgHtml: `
+          <svg viewBox="0 0 640 165" role="img" aria-label="Energinet AWS Pipeline Architecture Diagram">
+            <rect x="8" y="24" width="112" height="72" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <text x="64" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">01 INGEST</text>
+            <text x="64" y="65" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-primary)">EventBridge +</text>
+            <text x="64" y="79" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-secondary)">Lambda (5m)</text>
+
+            <path d="M124 60 L138 60" stroke="var(--accent-teal)" stroke-width="1.5" />
+            <polygon points="138,56 144,60 138,64" fill="var(--accent-teal)" />
+
+            <rect x="148" y="24" width="112" height="72" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <text x="204" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">02 STORE</text>
+            <text x="204" y="65" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-primary)">S3 Data Lake</text>
+            <text x="204" y="79" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-secondary)">Raw + Parquet</text>
+
+            <path d="M264 60 L278 60" stroke="var(--accent-teal)" stroke-width="1.5" />
+            <polygon points="278,56 284,60 278,64" fill="var(--accent-teal)" />
+
+            <rect x="288" y="24" width="112" height="72" rx="8" fill="var(--accent-teal-tint)" stroke="var(--accent-teal)" />
+            <text x="344" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">03 CURATE</text>
+            <text x="344" y="65" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-primary)">Glue ETL +</text>
+            <text x="344" y="79" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-secondary)">Data Catalog</text>
+
+            <path d="M404 60 L418 60" stroke="var(--accent-teal)" stroke-width="1.5" />
+            <polygon points="418,56 424,60 418,64" fill="var(--accent-teal)" />
+
+            <rect x="428" y="24" width="96" height="72" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <text x="476" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">04 QUERY</text>
+            <text x="476" y="65" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-primary)">Athena SQL</text>
+            <text x="476" y="79" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-secondary)">100 MB Cap</text>
+
+            <path d="M528 60 L542 60" stroke="var(--accent-teal)" stroke-width="1.5" />
+            <polygon points="542,56 548,60 542,64" fill="var(--accent-teal)" />
+
+            <rect x="552" y="24" width="80" height="72" rx="8" fill="var(--accent-pink-tint)" stroke="var(--accent-pink)" />
+            <text x="592" y="48" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-pink)">05 BI</text>
+            <text x="592" y="65" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-primary)">Power BI</text>
+            <text x="592" y="79" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-secondary)">DK1 / DK2</text>
+
+            <rect x="8" y="114" width="624" height="36" rx="6" fill="var(--bg-stone)" stroke="var(--border-hairline)" />
+            <text x="320" y="136" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-secondary)">
+              Governance: Step Functions Orchestration · head_object Idempotency · SSE-S3 · SNS Alerts
+            </text>
+          </svg>
+        `
+      },
+      {
+        id: 'dava',
+        num: '02',
+        module: 'DAVA',
+        domainTag: 'BI & Visualisation',
+        categories: ['BI & Visualisation'],
+        title: 'Hospital Inpatient Admissions & Length-of-Stay Visual Analytics',
+        desc: 'Multi-year (2023 - 2026) Tableau analytics suite examining inpatient length-of-stay drivers, demographic cohorts, and daily treatment costs.',
+        tools: 'Tableau, SQL, Data Profiling, Star-Schema Modeling',
+        analysis: 'Multi-year inpatient trends (2023 - 2026), BMI & age-band engineering, cost-vs-LOS box & scatter diagnostics',
+        highlights: ['Multi-Year Clinical Data', 'Executive Tableau Suite'],
+        context: 'Hospital resource planners needed clear evidence on which inpatient demographics, admission types, and clinical profiles drive prolonged length of stay (LOS) and high daily treatment expenditure across 2023 - 2026 records.',
+        approach: 'Integrated patient and admission tables using star-schema logical relationships in Tableau, profiled and audited data quality to filter out-of-scope records and extreme outliers, and authored calculated fields for BMI, standardized gender, patient age bands, and daily cost per inpatient.',
+        impact: 'Delivered an interactive Tableau dashboard combining LOS distribution box plots, daily cost-versus-stay scatter diagnostics, and dynamic filters, enabling clinical operations teams to pinpoint high-variability cohorts and benchmark daily resource utilization.',
+        svgCaption: 'Analytical View · Inpatient LOS Dispersion & Daily Cost Profiling',
+        svgHtml: `
+          <svg viewBox="0 0 640 165" role="img" aria-label="Hospital Inpatient LOS Box Plot and Segmentation Schematic">
+            <rect x="8" y="12" width="300" height="140" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <text x="24" y="34" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">LOS DISPERSION BY AGE BAND</text>
+            <line x1="24" y1="62" x2="288" y2="62" stroke="var(--border-hairline)" stroke-dasharray="3 3" />
+            <line x1="56" y1="62" x2="180" y2="62" stroke="var(--ink-secondary)" stroke-width="1.5" />
+            <rect x="84" y="52" width="58" height="20" rx="3" fill="var(--accent-teal-tint)" stroke="var(--accent-teal)" stroke-width="1.5" />
+            <line x1="112" y1="52" x2="112" y2="72" stroke="var(--accent-teal)" stroke-width="2" />
+            <text x="200" y="66" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--ink-secondary)">18-39 yrs (Lower IQR)</text>
+
+            <line x1="24" y1="104" x2="288" y2="104" stroke="var(--border-hairline)" stroke-dasharray="3 3" />
+            <line x1="74" y1="104" x2="236" y2="104" stroke="var(--ink-secondary)" stroke-width="1.5" />
+            <rect x="114" y="94" width="76" height="20" rx="3" fill="var(--accent-pink-tint)" stroke="var(--accent-pink)" stroke-width="1.5" />
+            <line x1="154" y1="94" x2="154" y2="114" stroke="var(--accent-pink)" stroke-width="2" />
+            <text x="200" y="108" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--ink-primary)">65+ yrs (Wider LOS)</text>
+            <text x="24" y="138" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="var(--ink-secondary)">Outlier audit &amp; logical star relationships</text>
+
+            <rect x="324" y="12" width="308" height="140" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <text x="340" y="34" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">ENGINEERED TABLEAU FIELDS</text>
+            <rect x="340" y="48" width="132" height="36" rx="5" fill="var(--bg-surface)" stroke="var(--border-hairline)" />
+            <text x="406" y="64" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="var(--ink-primary)">BMI &amp; Age Bands</text>
+            <text x="406" y="77" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="var(--ink-secondary)">Standardized Cohorts</text>
+
+            <rect x="484" y="48" width="132" height="36" rx="5" fill="var(--accent-teal-tint)" stroke="var(--accent-teal)" />
+            <text x="550" y="64" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="var(--accent-teal)">Daily Cost / Stay</text>
+            <text x="550" y="77" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="var(--ink-secondary)">Total Charge / LOS</text>
+
+            <text x="340" y="112" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" fill="var(--ink-primary)">Cross-filtered Box &amp; Scatter views highlight</text>
+            <text x="340" y="128" font-family="Plus Jakarta Sans, sans-serif" font-size="10.5" fill="var(--ink-secondary)">ward utilization and cost-per-day outliers.</text>
+          </svg>
+        `
+      },
+      {
+        id: 'dses',
+        num: '03',
+        module: 'DSES',
+        domainTag: 'Predictive & Risk Analytics',
+        categories: ['Predictive & Risk Analytics'],
+        title: 'Telecom Customer Upsell & Product Expansion Predictive Analysis',
+        desc: 'Binary classification framing and campaign sizing for Alpha Telecom (8,000 subscribers, 69.3% baseline rate, 2,600-call capacity constraint), projecting +187 net incremental product adds and a 10% A/B holdout test.',
+        tools: 'Python, Binary Classification, Feature Engineering, A/B Testing Design',
+        analysis: '8,000-subscriber base (69.3% baseline expansion) under 2,600-call capacity (32.5% reach), leakage-safe modeling, 10% holdout experiment',
+        highlights: ['+187 Net Product Adds', '10% A/B Holdout Design'],
+        context: 'Alpha Telecom aimed to grow multi-product adoption across an 8,000-customer subscriber base (69.3% baseline expansion rate), while outbound calling capacity was capped at 2,600 calls (32.5% reach). Unsegmented dialing would spend agent capacity on subscribers likely to upgrade organically.',
+        approach: 'Defined a leakage-safe binary classification target predicting year-over-year product expansion, engineered tenure and service usage features in Python, and aligned scoring thresholds with outbound call costs, expected ARPU lift, and Singapore PDPC Do-Not-Call (DNC) compliance.',
+        impact: 'Projected +187 net incremental product additions over unsegmented calling and designed a statistically powered 10% A/B holdout experiment (260 control accounts vs. 2,340 treatment calls, +/- 4.3 pp margin of error) with clear go/no-go rollout thresholds.',
+        svgCaption: 'Campaign Sizing · 8,000 Base, 2,600 Call Cap & 10% A/B Holdout',
+        svgHtml: `
+          <svg viewBox="0 0 640 165" role="img" aria-label="Alpha Telecom Campaign Capacity and A/B Holdout Chart">
+            <rect x="8" y="12" width="624" height="140" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <text x="24" y="34" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">ALPHA TELECOM OPERATIONAL CAPACITY &amp; EXPERIMENT SPLIT</text>
+
+            <text x="24" y="58" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-primary)">Eligible Base: 8,000 (100%)</text>
+            <rect x="240" y="46" width="372" height="16" rx="4" fill="var(--bg-stone)" />
+            <rect x="240" y="46" width="258" height="16" rx="4" fill="var(--ink-muted)" />
+            <text x="506" y="58" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--ink-secondary)">69.3% Baseline</text>
+
+            <text x="24" y="90" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-primary)">Call Cap: 2,600 (32.5%)</text>
+            <rect x="240" y="78" width="121" height="16" rx="4" fill="var(--accent-teal)" />
+            <text x="370" y="90" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="var(--accent-teal)">+187 Net Incremental Adds</text>
+
+            <text x="24" y="122" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--ink-primary)">A/B Split (90% / 10%)</text>
+            <rect x="240" y="110" width="108" height="16" rx="4" fill="var(--accent-blue)" />
+            <rect x="352" y="110" width="18" height="16" rx="4" fill="var(--accent-pink-tint)" stroke="var(--accent-pink)" />
+            <text x="378" y="122" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--ink-secondary)">2,340 Treatment vs. 260 Holdout (+/- 4.3 pp MOE)</text>
+          </svg>
+        `
+      },
+      {
+        id: 'dwbi',
+        num: '04',
+        module: 'DWBI',
+        domainTag: 'Data Engineering & SQL',
+        categories: ['Data Engineering & SQL'],
+        title: 'Enterprise Data Warehousing & Card Fraud Exploratory Analysis',
+        desc: 'Dimensional star-schema modeling in MySQL Workbench with repeatable Alteryx Designer ETL workflows, paired with exploratory transaction fraud risk profiling on the BankSim dataset.',
+        tools: 'MySQL Workbench, Alteryx Designer, Power BI, Python',
+        analysis: 'Star-schema fact & dimension modeling, repeatable Alteryx ETL workflows, BankSim transaction anomaly & merchant risk profiling',
+        highlights: ['Star Schema Warehouse', 'Automated Alteryx ETL'],
+        context: 'Fragmented operational tables slowed down recurring BI reporting, while risk stakeholders needed clear exploratory analysis on financial transaction patterns (BankSim dataset) to identify high-risk merchant categories and anomalous spending behavior.',
+        approach: 'Designed a dimensional star schema in MySQL Workbench separating core transaction facts from customer, merchant, and date dimensions, and built repeatable Alteryx Designer workflows for data cleansing, surrogate key lookups, and loading. Complemented the warehouse with Python and Power BI exploratory fraud analysis.',
+        impact: 'Replaced manual spreadsheet joins with a documented, repeatable ETL warehouse pipeline and surfaced high-risk merchant category concentrations and transaction amount thresholds to support actionable fraud monitoring rules.',
+        svgCaption: 'Warehouse Topology · Dimensional Star Schema & BankSim Risk EDA',
+        svgHtml: `
+          <svg viewBox="0 0 640 165" role="img" aria-label="Star Schema Data Warehouse Diagram">
+            <rect x="8" y="12" width="624" height="140" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <rect x="24" y="28" width="136" height="38" rx="6" fill="var(--bg-surface)" stroke="var(--border-hairline)" />
+            <text x="92" y="45" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="var(--ink-primary)">Dim_Customer</text>
+            <text x="92" y="58" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="var(--ink-secondary)">Age · Gender · Zip</text>
+
+            <rect x="24" y="98" width="136" height="38" rx="6" fill="var(--bg-surface)" stroke="var(--border-hairline)" />
+            <text x="92" y="115" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="var(--ink-primary)">Dim_Merchant</text>
+            <text x="92" y="128" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="var(--ink-secondary)">Category · Risk Tier</text>
+
+            <line x1="160" y1="47" x2="232" y2="75" stroke="var(--accent-teal)" stroke-width="1.5" />
+            <line x1="160" y1="117" x2="232" y2="90" stroke="var(--accent-teal)" stroke-width="1.5" />
+
+            <rect x="234" y="52" width="172" height="60" rx="8" fill="var(--accent-teal-tint)" stroke="var(--accent-teal)" stroke-width="1.5" />
+            <text x="320" y="75" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600" fill="var(--accent-teal)">Fact_Transactions</text>
+            <text x="320" y="91" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5" fill="var(--ink-primary)">Amount · Fraud Flag · FKs</text>
+            <text x="320" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8.5" fill="var(--ink-secondary)">Loaded via Alteryx ETL</text>
+
+            <line x1="406" y1="82" x2="466" y2="82" stroke="var(--accent-teal)" stroke-width="1.5" />
+
+            <rect x="468" y="28" width="148" height="38" rx="6" fill="var(--bg-surface)" stroke="var(--border-hairline)" />
+            <text x="542" y="45" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="var(--ink-primary)">Dim_Date</text>
+            <text x="542" y="58" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="var(--ink-secondary)">Step · Day · Period</text>
+
+            <rect x="468" y="98" width="148" height="38" rx="6" fill="var(--accent-pink-tint)" stroke="var(--accent-pink)" />
+            <text x="542" y="115" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="var(--accent-pink)">BankSim Risk EDA</text>
+            <text x="542" y="128" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="var(--ink-secondary)">Outlier &amp; Category Rules</text>
+          </svg>
+        `
+      },
+      {
+        id: 'quas',
+        num: '05',
+        module: 'QUAS',
+        domainTag: 'Predictive & Risk Analytics',
+        categories: ['Predictive & Risk Analytics'],
+        title: 'Quantitative Business & Statistical Hypothesis Analysis',
+        desc: 'Confidence interval estimation, statistical hypothesis testing, multi-factor ANOVA, and linear regression diagnostics to guide evidence-based operational decisions.',
+        tools: 'Microsoft Excel, Statistical Modeling, Regression & ANOVA',
+        analysis: 'Confidence interval estimation, hypothesis testing, multi-factor ANOVA, and linear regression diagnostics for operational decisions',
+        highlights: ['ANOVA & Hypothesis Tests', 'Regression Diagnostics'],
+        context: 'Operational teams often observe apparent differences in performance metrics across groups or time periods, risking costly business changes driven by random sample noise rather than statistically verified drivers.',
+        approach: 'Constructed structured statistical models in Microsoft Excel to estimate 95% confidence intervals, run hypothesis tests and multi-factor ANOVA across operational groups, and fit linear regression models with residual and p-value diagnostics.',
+        impact: 'Distinguished statistically significant operational drivers (p < 0.05) from random variation, translating regression coefficients and interval estimates into concise, evidence-backed recommendations for decision-makers.',
+        svgCaption: 'Quantitative Inference · Confidence Bounds & Regression Diagnostics',
+        svgHtml: `
+          <svg viewBox="0 0 640 165" role="img" aria-label="Statistical Hypothesis Testing and Regression Diagram">
+            <rect x="8" y="12" width="300" height="140" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <text x="24" y="34" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">ANOVA &amp; 95% CONFIDENCE INTERVALS</text>
+            <line x1="48" y1="68" x2="152" y2="68" stroke="var(--ink-secondary)" stroke-width="2" />
+            <circle cx="100" cy="68" r="5" fill="var(--ink-secondary)" />
+            <text x="168" y="72" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--ink-secondary)">Group A Mean +/- CI</text>
+
+            <line x1="126" y1="106" x2="254" y2="106" stroke="var(--accent-pink)" stroke-width="2" />
+            <circle cx="190" cy="106" r="5" fill="var(--accent-pink)" />
+            <text x="168" y="128" font-family="JetBrains Mono, monospace" font-size="9.5" font-weight="600" fill="var(--accent-pink)">Group B (p &lt; 0.05)</text>
+
+            <rect x="324" y="12" width="308" height="140" rx="8" fill="var(--bg-paper)" stroke="var(--border-hairline)" />
+            <text x="340" y="34" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600" fill="var(--accent-teal)">LINEAR REGRESSION DIAGNOSTICS</text>
+            <line x1="352" y1="126" x2="604" y2="126" stroke="var(--border-hairline)" stroke-width="1.5" />
+            <line x1="352" y1="48" x2="352" y2="126" stroke="var(--border-hairline)" stroke-width="1.5" />
+            <line x1="364" y1="116" x2="588" y2="56" stroke="var(--accent-teal)" stroke-width="2" />
+            <circle cx="384" cy="112" r="3.5" fill="var(--ink-primary)" />
+            <circle cx="426" cy="94" r="3.5" fill="var(--ink-primary)" />
+            <circle cx="468" cy="92" r="3.5" fill="var(--ink-primary)" />
+            <circle cx="514" cy="72" r="3.5" fill="var(--ink-primary)" />
+            <circle cx="566" cy="64" r="3.5" fill="var(--ink-primary)" />
+            <text x="480" y="142" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9.5" fill="var(--ink-secondary)">Slope estimation, R-squared &amp; residual checks</text>
+          </svg>
+        `
+      }
+    ];
+
+    /**
+     * 3. Render Numbered Case Studies with Reveal & Cursor Glow
+     */
+    let activeCaseIndex = 0;
+
+    function attachCardInteractivity(container) {
+      container.querySelectorAll('.case-card').forEach((card, i) => {
+        const idx = Number(card.getAttribute('data-case-index'));
+        card.style.setProperty('--reveal-delay', `${Math.min(i * 65, 320)}ms`);
+
+        card.addEventListener('click', () => openDrawer(idx));
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openDrawer(idx);
+          }
+        });
+
+        card.addEventListener('pointermove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        if (window.portfolioObserver) {
+          window.portfolioObserver.observe(card);
+        } else {
+          card.classList.add('is-visible');
+        }
+      });
+    }
+
+    function renderCaseStudies(filterCategory = 'all') {
+      const container = document.getElementById('case-list');
+      if (!container) return;
+
+      const filtered = filterCategory === 'all'
+        ? CASE_STUDIES
+        : CASE_STUDIES.filter((item) => item.categories.includes(filterCategory));
+
+      container.innerHTML = filtered.map((study) => {
+        const globalIdx = CASE_STUDIES.findIndex((s) => s.id === study.id);
+        const pillsHtml = study.highlights
+          .map((pill) => `<span class="highlight-pill">${pill}</span>`)
+          .join('');
+
+        return `
+          <article class="case-card reveal" data-case-index="${globalIdx}" tabindex="0" role="button" aria-label="Read case study: ${study.title}">
+            <div class="case-card-top">
+              <div class="case-id-row">
+                <span class="case-number">${study.num}</span>
+                <span class="module-badge">${study.module}</span>
+                <span class="case-domain-label">${study.domainTag}</span>
+              </div>
+              <div class="highlight-pills-row">${pillsHtml}</div>
+            </div>
+
+            <h3 class="case-title">${study.title}</h3>
+            <p class="case-desc">${study.desc}</p>
+
+            <div class="case-meta-box">
+              <div class="case-meta-line">
+                <span class="case-meta-key">Tools:</span>
+                <span class="case-meta-val">${study.tools}</span>
+              </div>
+              <div class="case-meta-line">
+                <span class="case-meta-key">Analysis:</span>
+                <span class="case-meta-val">${study.analysis}</span>
+              </div>
+            </div>
+
+            <div class="case-card-bottom">
+              <span class="btn-read-case">Read Case Study &rarr;</span>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      attachCardInteractivity(container);
+    }
+
+    /**
+     * 4. Slide-Over Case Study Drawer Controls
+     */
+    function populateDrawer(index) {
+      const study = CASE_STUDIES[index];
+      if (!study) return;
+      activeCaseIndex = index;
+
+      document.getElementById('drawer-top-meta').textContent =
+        `${study.num} · [${study.module}] · ${study.domainTag}`;
+      document.getElementById('drawer-title').textContent = study.title;
+
+      document.getElementById('drawer-pills').innerHTML = study.highlights
+        .map((pill) => `<span class="highlight-pill">${pill}</span>`)
+        .join('');
+
+      document.getElementById('drawer-context').textContent = study.context;
+      document.getElementById('drawer-approach').textContent = study.approach;
+      document.getElementById('drawer-svg-caption').textContent = study.svgCaption;
+      document.getElementById('drawer-svg-wrap').innerHTML = study.svgHtml;
+      document.getElementById('drawer-impact').textContent = study.impact;
+
+      const toolsArr = study.tools.split(',').map((t) => t.trim());
+      document.getElementById('drawer-tools-list').innerHTML = toolsArr
+        .map((t) => `<span class="drawer-tool-chip">${t}</span>`)
+        .join('');
+
+      const drawerBody = document.querySelector('.drawer-body');
+      if (drawerBody) drawerBody.scrollTop = 0;
+    }
+
+    function openDrawer(index) {
+      populateDrawer(index);
+      const drawer = document.getElementById('case-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
+      drawer.classList.add('open');
+      backdrop.classList.add('open');
+      drawer.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('drawer-open');
+      document.getElementById('drawer-close-btn')?.focus();
+    }
+
+    function closeDrawer() {
+      const drawer = document.getElementById('case-drawer');
+      const backdrop = document.getElementById('drawer-backdrop');
+      drawer.classList.remove('open');
+      backdrop.classList.remove('open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('drawer-open');
+    }
+
+    /**
+     * 5. Clipboard Copy Helper & Toast Feedback
+     */
+    let toastTimeout = null;
+    function showToast(message) {
+      const toast = document.getElementById('toast-banner');
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.add('visible');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('visible');
+      }, 2600);
+    }
+
+    function copyTextToClipboard(text) {
+      try {
+        const tempInput = document.createElement('textarea');
+        tempInput.value = text;
+        tempInput.setAttribute('readonly', '');
+        tempInput.style.position = 'fixed';
+        tempInput.style.left = '-9999px';
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        showToast(`Copied ${text} to clipboard`);
+      } catch (err) {
+        showToast(text);
+      }
+    }
+
+    /**
+     * 6. Initialize Event Listeners, Scroll Progress, Theme Toggle & Reveal Observer
+     */
+    document.addEventListener('DOMContentLoaded', () => {
+      // Staggered Scroll-Reveal IntersectionObserver
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealEls = document.querySelectorAll('.reveal');
+
+      if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+        window.portfolioObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08, rootMargin: '0px 0px -32px 0px' }
+        );
+
+        revealEls.forEach((el, idx) => {
+          el.style.setProperty('--reveal-delay', `${(idx % 4) * 65}ms`);
+          window.portfolioObserver.observe(el);
+        });
+      } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      renderCaseStudies('all');
+
+      // Top Scroll Progress Bar
+      const progressBar = document.getElementById('scroll-progress-bar');
+      const updateScrollProgress = () => {
+        if (!progressBar) return;
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+        progressBar.style.width = `${pct}%`;
+      };
+      window.addEventListener('scroll', updateScrollProgress, { passive: true });
+      updateScrollProgress();
+
+      // 1-Click Theme Toggle (Midnight · Mint & Pink <-> Light · Mint & Baby Blue)
+      const themeToggleBtn = document.getElementById('theme-toggle-btn');
+      const themeToggleLabel = document.getElementById('theme-toggle-label');
+      const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (themeToggleLabel) {
+          themeToggleLabel.textContent =
+            theme === 'dark' ? 'Light · Mint & Baby Blue' : 'Midnight · Mint & Pink';
+        }
+        try {
+          localStorage.setItem('tly_portfolio_theme', theme);
+        } catch (err) {
+          // Ignore storage restrictions
+        }
+      };
+
+      try {
+        const savedTheme = localStorage.getItem('tly_portfolio_theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          applyTheme(savedTheme);
+        }
+      } catch (err) {
+        // Default to dark
+      }
+
+      themeToggleBtn?.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      // Interactive Pipeline Spotlight Stage Selection
+      const stageBtns = document.querySelectorAll('.stage-btn');
+      stageBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.getAttribute('data-stage'));
+          const stage = PIPELINE_STAGES[idx];
+          if (!stage) return;
+
+          stageBtns.forEach((b) => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          document.getElementById('inspector-title').textContent = stage.title;
+          document.getElementById('inspector-pill').textContent = stage.pill;
+          document.getElementById('inspector-logic').textContent = stage.logic;
+          document.getElementById('inspector-guardrails').textContent = stage.guardrails;
+          document.getElementById('inspector-output').textContent = stage.output;
+        });
+      });
+
+      // Category Filter Pills
+      const filterPills = document.querySelectorAll('.filter-pill');
+      filterPills.forEach((pill) => {
+        pill.addEventListener('click', () => {
+          const category = pill.getAttribute('data-filter');
+          filterPills.forEach((p) => p.classList.remove('active'));
+          pill.classList.add('active');
+          renderCaseStudies(category);
+        });
+      });
+
+      // Slide-Over Drawer Listeners
+      document.getElementById('drawer-close-btn')?.addEventListener('click', closeDrawer);
+      document.getElementById('drawer-backdrop')?.addEventListener('click', closeDrawer);
+
+      document.getElementById('drawer-prev-btn')?.addEventListener('click', () => {
+        const prevIdx = (activeCaseIndex - 1 + CASE_STUDIES.length) % CASE_STUDIES.length;
+        populateDrawer(prevIdx);
+      });
+
+      document.getElementById('drawer-next-btn')?.addEventListener('click', () => {
+        const nextIdx = (activeCaseIndex + 1) % CASE_STUDIES.length;
+        populateDrawer(nextIdx);
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeDrawer();
+        }
+      });
+
+      // Copy Email Buttons
+      document.querySelectorAll('.js-copy-email').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const email = btn.getAttribute('data-email') || 'liyingofficial@gmail.com';
+          copyTextToClipboard(email);
+        });
+      });
+
+      // Mobile Navigation Toggle
+      const mobileNavBtn = document.getElementById('mobile-nav-btn');
+      const mobileNavPanel = document.getElementById('mobile-nav-panel');
+      if (mobileNavBtn && mobileNavPanel) {
+        mobileNavBtn.addEventListener('click', () => {
+          const isOpen = mobileNavPanel.classList.toggle('open');
+          mobileNavBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        document.querySelectorAll('.mobile-nav-item').forEach((item) => {
+          item.addEventListener('click', () => {
+            mobileNavPanel.classList.remove('open');
+            mobileNavBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
